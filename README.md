@@ -30,6 +30,6 @@ The application should be developed with
   * Unit testing
 
   
-### Optional ###  
+### Optional 
   * https://www.telerik.com/kendo-angular-ui/components/charts/
   * https://angular.io/start
