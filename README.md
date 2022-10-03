@@ -1,29 +1,35 @@
-# README #
+# Coding Test Question #1 #
+### Objective: ###
+To create an ecommerce application for users to purchase watches easily
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### Instructions ###
+Create an application with the requirements mentioned. Codes should be pushed to the repository that candidates have been invited to. 
 
-### What is this repository for? ###
+### Functional Requirements: ###
+The application should minimally have the following functions: 
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+  1.	List of all watches available 
+  2.	Individual watch details
+  3.	Purchase Options (Quantity, Strap Color and Dial Size) and Confirmation
+  4.	Cart Function for user to add items
+  5.	Checkout items 
+  6.	Payment Page
 
-### How do I get set up? ###
+### Technical Requirements ###
+The application should be developed with 
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+  1.	Angular	
+  1.	KendoUI 
+  1.	Responsive Design catered for Web and Mobile view
+  1.	Committed to repository.
 
-### Contribution guidelines ###
+*Note: KendoUI should be sufficient for most use cases. In case, there are component not available by KendoUI, please kindly specify them.   
+  
+### Optional ###
+  * Hi-fi mock up
+  * Unit testing
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+  
+### Optional ###  
+  * https://www.telerik.com/kendo-angular-ui/components/charts/
+  * https://angular.io/start
