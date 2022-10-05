@@ -4,3 +4,15 @@
   <span>{{item.name}}</span>
   <span>{{item.price | currency}}</span>
 </div>
+
+<div *ngIf="items.length === 0">
+  <p>Your cart is empty!</p>
+  <p>Click <a routerLink="/">here</a> to view all watches!</p>
+</div>
+
+<div *ngIf="items.length">
+  <p>
+    <a routerLink="/shipping">Shipping prices</a>
+  </p>
+  <button class="button" type="button" routerLink="/checkout">Checkout</button>
+</div>
