@@ -8,6 +8,8 @@ import { CartService } from '../cart.service';
 })
 export class TopBarComponent {
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
+  items = this.cartService.getItems();
+
 
 }

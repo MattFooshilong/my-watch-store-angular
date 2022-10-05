@@ -13,6 +13,10 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   imports: [
@@ -26,7 +30,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
       { path: 'shipping', component: ShippingComponent },
       { path: 'checkout', component: CheckoutComponent }
 
-    ])
+    ]),
+    DateInputsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
