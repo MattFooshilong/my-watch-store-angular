@@ -13,7 +13,6 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -31,7 +30,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: 'checkout', component: CheckoutComponent }
 
     ]),
-    DateInputsModule,
     BrowserAnimationsModule
   ],
   declarations: [
