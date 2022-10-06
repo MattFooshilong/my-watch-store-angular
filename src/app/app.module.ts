@@ -14,7 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { LayoutModule } from '@progress/kendo-angular-layout';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
 
 
 @NgModule({
@@ -30,7 +34,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: 'checkout', component: CheckoutComponent }
 
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DateInputsModule,
+    DropDownsModule,
+    LayoutModule,
+    ButtonsModule,
+    DialogsModule
   ],
   declarations: [
     AppComponent,

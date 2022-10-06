@@ -1,7 +1,48 @@
-<h2>Product Details</h2>
-<div *ngIf="product">
-    <h3>{{product.name}}</h3>
-    <h4>{{product.price | currency:'EUR'}}</h4>
-    <p>{{product.description}}</p>
-    <button (click)="addToCart(product)">Add to cart</button>
+<div class="container">
+    <div>
+        <img src="../../assets/images/watch{{productID}}.png" alt="watch" width="300" height="300">
+
+    </div>
+    <div *ngIf="product">
+        <h3>{{product.name}}</h3>
+        <h4>{{product.price | currency:'SGD'}}</h4>
+        <p>{{product.description}}</p>
+
+        <kendo-dropdownlist [data]="strapColorDropDownItems" [defaultItem]="strapColordefaultItem" textField="text"
+            [fillMode]="'outline'" valueField="value" class="k-mb-3">
+        </kendo-dropdownlist>
+
+        <kendo-dropdownlist [data]="dialSizeDropDownItems" [defaultItem]="dialSizeDefaultItem" textField="text"
+            [fillMode]="'outline'" valueField="value" (valueChange)="handleFilterChange($event)" class="k-mb-3">
+        </kendo-dropdownlist>
+
+        <div class="k-mb-3">
+
+            <button kendoButton icon="k-icon k-i-plus" title="k-i-plus" fillMode="outline" class="k-mr-2"
+                (click)="addCount()"></button>
+
+            {{itemCount}}
+
+            <button kendoButton icon="k-icon k-i-minus" title="k-i-minus" fillMode="outline" class="k-ml-2"
+                (click)="minusCount()"></button>
+
+        </div>
+
+
+        <button kendoButton (click)="open()" themeColor="dark" class="button__text__white">Add to cart</button>
+    </div>
+
+
+
+    <kendo-dialog title="Confirmation" *ngIf="opened && product" (close)="close()" [minWidth]="250" [width]="300">
+        <p style="margin: 30px; text-align: center;" *ngIf="product">
+            {{product.name}}
+        </p>
+        <kendo-dialog-actions>
+            <button kendoButton (click)="close()">No</button>
+            <button kendoButton (click)="addToCart(product)" themeColor="dark" class="button__text__white">
+                Yes
+            </button>
+        </kendo-dialog-actions>
+    </kendo-dialog>
 </div>

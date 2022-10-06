@@ -7,21 +7,21 @@ export interface Product {
 
 export const products = [
   {
+    id: 0,
+    name: 'Apple Watch 8',
+    price: 1399,
+    description: 'A smart watch with one of the best screens'
+  },
+  {
     id: 1,
-    name: 'Phone XL',
-    price: 799,
-    description: 'A large phone with one of the best screens'
+    name: 'Rolex Duo',
+    price: 14999,
+    description: 'A great watches that comes in pair of ocean blue and space black'
   },
   {
     id: 2,
-    name: 'Phone Mini',
-    price: 699,
-    description: 'A great phone with one of the best cameras'
-  },
-  {
-    id: 3,
-    name: 'Phone Standard',
-    price: 299,
-    description: ''
+    name: 'Rolex Black Gold',
+    price: 200000,
+    description: 'Beautiful classic gold on black'
   }
 ];
