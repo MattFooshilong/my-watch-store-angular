@@ -23,5 +23,35 @@ export const products = [
     name: 'Rolex Black Gold',
     price: 200000,
     description: 'Beautiful classic gold on black'
+  },
+  {
+    id: 3,
+    name: 'Farer Casual Back',
+    price: 700,
+    description: 'A watch that you can wear on smart casual days'
+  },
+  {
+    id: 4,
+    name: 'White Gold Omega',
+    price: 8000,
+    description: 'White classic gold that brings a touch of elegance and class'
+  },
+  {
+    id: 5,
+    name: 'Silver Age',
+    price: 80,
+    description: 'All silver, all you'
+  },
+  {
+    id: 6,
+    name: 'The Perfectionist',
+    price: 200,
+    description: 'Take charge of your time right down to the milliseconds'
+  },
+  {
+    id: 7,
+    name: 'The Masterpiece',
+    price: 200,
+    description: 'The masterpiece, no words needed'
   }
 ];
