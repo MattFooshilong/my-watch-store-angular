@@ -1,5 +1,11 @@
 /* Global Styles */
 
+@import "~@progress/kendo-theme-bootstrap/dist/all.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+
+
+
+
 * {
   font-family: 'Roboto', Arial, sans-serif;
   color: #616161;

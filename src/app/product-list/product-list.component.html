@@ -1,12 +1,21 @@
-<h2>Products</h2>
+<div class="my-container">
 
-<div *ngFor="let product of products">
-  <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">{{product.name}}</a>
-  </h3>
+  <kendo-card *ngFor="let product of products" width="250px" [title]="product.name + ' details'"
+    [routerLink]="['/products', product.id]" class="card__highlight">
 
-  <p *ngIf="product.description">Description: {{product.description}}</p>
+    <img src="../../assets/images/watch{{product.id}}.png" kendoCardMedia alt="cover_img" width="240" height="240" />
+    <kendo-card-body>
+      <h4>{{product.name}}</h4>
+      <hr kendoCardSeparator />
+      <p *ngIf="product.description">
+        {{product.description}}
+      </p>
+      <p *ngIf="product.price">
+        {{product.price | currency:'SGD'}}
+      </p>
+    </kendo-card-body>
+  </kendo-card>
 
-  <button (click)="addToCart(product)">Add to cart</button>
+  <!-- <button (click)="addToCart(product)">Add to cart</button> -->
   <!-- <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts> -->
 </div>
