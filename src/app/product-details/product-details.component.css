@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    column-gap: 2rem;
+    padding: 2rem
+}
+
+.button__text__white span {
+    color: white !important;
+}
