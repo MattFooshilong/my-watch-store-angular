@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Coding Test Question #1 #
 ### Objective: ###
 To create an ecommerce application for users to purchase watches easily

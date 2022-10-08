@@ -19,6 +19,8 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './state/counter.reducer'
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
     DropDownsModule,
     LayoutModule,
     ButtonsModule,
-    DialogsModule
+    DialogsModule,
+    StoreModule.forRoot({ counter: counterReducer })
   ],
   declarations: [
     AppComponent,

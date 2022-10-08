@@ -9,7 +9,9 @@ import { CartService } from '../cart.service';
 export class TopBarComponent {
 
   constructor(private cartService: CartService) { }
-  items = this.cartService.getItems();
+
+  items = this.cartService.getItemsFromService();
+
 
 
 }

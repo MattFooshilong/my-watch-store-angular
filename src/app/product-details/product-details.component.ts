@@ -4,23 +4,32 @@ import { Product, products } from '../products'
 import { CartService } from '../cart.service'
 import { strapColor } from "../data.strapColor"
 import { dialSize } from "../data.dialSize"
+import { Store } from '@ngrx/store'
+import { increment, decrement, reset, customIncrement } from '../state/counter.actions'
+import { CounterState } from '../state/counter.state'
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
+
+
 export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private store: Store<{ counter: CounterState }>
   ) { }
 
   //watch state
   product: Product | undefined;
   productID: number | null = null
-  itemCount: number = 0
+  //selected values
+  quantity: number = 0
   public chosenStrapColor: number | null = null
+  public chosenDialSize: number | null = null
+
 
   //strap color dropdown
   public strapColorDropDownItems = strapColor
@@ -45,20 +54,44 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(product: Product) {
+    product.strapColor = this.chosenStrapColor
+    product.dialSize = this.chosenDialSize
+    product.quantity = this.quantity
+    console.log(product)
     this.cartService.addToCart(product)
     window.alert('Your product has been added to the cart!')
     this.close()
   }
 
-  public handleFilterChange(item: { text: string; value: number | null }): void {
-    this.chosenStrapColor = item.value;
-    console.log(this.chosenStrapColor)
+
+
+  public handleChange(item: { text: string; value: number | null }, type: string): void {
+    if (type === 'strap') this.chosenStrapColor = item.value;
+    if (type === 'dialSize') this.chosenDialSize = item.value;
+
+    console.log(this.chosenDialSize)
   }
 
   addCount() {
-    this.itemCount++
+    this.quantity++
   }
   minusCount() {
-    if (this.itemCount > 0) this.itemCount--
+    if (this.quantity > 0) this.quantity--
+  }
+
+  //ngrx
+  value: number;
+  onIncrement() {
+    this.store.dispatch(increment())
+  }
+  onDecrement() {
+    this.store.dispatch(decrement())
+  }
+  onReset() {
+    this.store.dispatch(reset())
+  }
+  onAdd() {
+    this.store.dispatch(customIncrement({ count: this.chosenDialSize }))
   }
 }
+

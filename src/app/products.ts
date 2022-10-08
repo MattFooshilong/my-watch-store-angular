@@ -3,6 +3,9 @@ export interface Product {
   name: string;
   price: number;
   description: string;
+  strapColor?: number | null;
+  dialSize?: number | null;
+  quantity?: number;
 }
 
 export const products = [

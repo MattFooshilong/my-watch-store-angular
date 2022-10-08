@@ -18,10 +18,10 @@ body {
   margin: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-}
+// .container {
+//   display: flex;
+//   flex-direction: row;
+// }
 
 router-outlet+* {
   padding: 0 16px;
@@ -139,20 +139,4 @@ app-top-bar {
 app-top-bar h1 {
   color: white;
   margin: 0;
-}
-
-/* Checkout Cart, Shipping Prices */
-
-.cart-item,
-.shipping-item {
-  width: 100%;
-  min-width: 400px;
-  max-width: 450px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 16px 32px;
-  margin-bottom: 8px;
-  border-radius: 2px;
-  background-color: #EEEEEE;
 }
