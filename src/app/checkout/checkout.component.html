@@ -1,20 +1,82 @@
-<h3>Checkout</h3>
+<div class="row px-5">
+    <div class="col-md-2">
 
-<div class="cart-item" *ngFor="let item of items">
-    <span>{{item.name}}</span>
-    <span>{{item.price | currency}}</span>
+        <div class="cart-item" *ngFor="let item of items">
+            <h4>{{item.name}}</h4>
+            <small>{{item.price | currency:'SGD'}}</small>
+            <small>{{item.strapColor}}</small>
+            <small>{{item.dialSize}}</small>
+            <small>Quantity: x{{item.quantity}}</small>
+        </div>
+
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="k-form" [formGroup]="form">
+                    <kendo-formfield>
+                        <kendo-label [for]="fullName" text="Full Name"></kendo-label>
+                        <kendo-textbox formControlName="fullName" [clearButton]="true" #fullName required>
+                        </kendo-textbox>
+
+                        <kendo-formerror>Error: Full Name is required</kendo-formerror>
+                    </kendo-formfield>
+
+                    <kendo-formfield>
+                        <kendo-label [for]="email" text="Email"></kendo-label>
+                        <kendo-textbox formControlName="email" [clearButton]="true" #email required></kendo-textbox>
+
+                        <kendo-formerror *ngIf="form.controls.email.errors?.required">Error: Email is required
+                        </kendo-formerror>
+                        <kendo-formerror *ngIf="form.controls.email.errors?.email">Error: Not valid email format
+                        </kendo-formerror>
+                    </kendo-formfield>
+
+                    <kendo-formfield>
+                        <kendo-label [for]="address" text="Address"></kendo-label>
+                        <kendo-textbox formControlName="address" [clearButton]="true" #address required></kendo-textbox>
+
+                        <kendo-formerror *ngIf="form.controls.address.errors?.required">Error: Address is required
+                        </kendo-formerror>
+
+                    </kendo-formfield>
+
+                    <kendo-formfield>
+                        <kendo-label [for]="cardNumber" text="Card Number"></kendo-label>
+                        <kendo-textbox formControlName="cardNumber" [clearButton]="true" #cardNumber required>
+                        </kendo-textbox>
+
+                        <kendo-formerror *ngIf="form.controls.cardNumber.errors?.required">Error: Card Number is
+                            required
+                        </kendo-formerror>
+
+                    </kendo-formfield>
+
+                    <kendo-formfield>
+                        <div class="d-flex">
+                            <input kendoCheckBox id="terms" type="checkbox" formControlName="terms" />
+                            <kendo-label class="k-checkbox-label" for="terms"
+                                text="I agree with the Тerms and Conditions">
+                            </kendo-label>
+                        </div>
+                        <kendo-formerror>Error: This field is required</kendo-formerror>
+                    </kendo-formfield>
+
+                    <kendo-formfield>
+                        <kendo-label [for]="comments" text="Remarks" [optional]="true"></kendo-label>
+                        <kendo-textarea #comments formControlName="comments" resizable="vertical"></kendo-textarea>
+                    </kendo-formfield>
+
+                    <div class="k-form-buttons">
+
+                        <button kendoButton themeColor="dark" class="button__text__white w-100" (click)="submitForm()">
+                            Purchase
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
 </div>
-
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="name">Name</label>
-        <input id="name" type="text" formControlName="name">
-    </div>
-
-    <div>
-        <label for="address">Address</label>
-        <input id="address" type="text" formControlName="address">
-    </div>
-
-    <button class="button" type="submit">Purchase</button>
-</form>

@@ -1,27 +1,36 @@
-# MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+# Coding Test Question #1 #
+### Objective: ###
+To create an ecommerce application for users to purchase watches easily
 
-## Development server
+### Instructions ###
+Create an application with the requirements mentioned. Codes should be pushed to the repository that candidates have been invited to. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Functional Requirements: ###
+The application should minimally have the following functions: 
 
-## Code scaffolding
+  1.	List of all watches available 
+  2.	Individual watch details
+  3.	Purchase Options (Quantity, Strap Color and Dial Size) and Confirmation
+  4.	Cart Function for user to add items
+  5.	Checkout items 
+  6.	Payment Page
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Technical Requirements ###
+The application should be developed with 
 
-## Build
+  1.	Angular	
+  1.	KendoUI 
+  1.	Responsive Design catered for Web and Mobile view
+  1.	Committed to repository.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+*Note: KendoUI should be sufficient for most use cases. In case, there are component not available by KendoUI, please kindly specify them.   
+  
+### Optional ###
+  * Hi-fi mock up
+  * Unit testing
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  
+### Optional 
+  * https://www.telerik.com/kendo-angular-ui/components/charts/
+  * https://angular.io/start

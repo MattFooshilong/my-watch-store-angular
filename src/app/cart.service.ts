@@ -1,31 +1,31 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 import { Product } from './products'
-import { HttpClient } from '@angular/common/http'
+import { BehaviorSubject } from 'rxjs'
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class CartService {
-  items: Product[] = []
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor() { }
 
+  public cartItemList: any = []
+  public productList = new BehaviorSubject<any>([])
+
+  getProducts() {
+    return this.productList.asObservable()
+  }
   addToCart(product: Product) {
-    this.items.push(product)
-    console.log(this.items)
+    const copy = { ...product }
+    copy.cartItemID = copy.name + (Math.random() * 1000000).toString()
+    this.cartItemList.push(copy)
+    this.productList.next(this.cartItemList)
+    console.log(this.cartItemList)
+  }
+  removeCartItem(product: Product) {
+    const temp = this.cartItemList.filter((ele: Product) => ele.cartItemID !== product.cartItemID)
+    this.cartItemList = [...temp]
+    this.productList.next(this.cartItemList)
   }
 
-  getItems() {
-    return this.items
-  }
-
-  clearCart() {
-    this.items = []
-    return this.items
-  }
-
-  getShippingPrices() {
-    return this.http.get<{ type: string, price: number }[]>('/assets/shipping.json')
-  }
 }

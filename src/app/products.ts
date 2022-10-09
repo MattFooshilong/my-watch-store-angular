@@ -3,6 +3,10 @@ export interface Product {
   name: string;
   price: number;
   description: string;
+  strapColor?: string | null;
+  dialSize?: string | null;
+  quantity?: number;
+  cartItemID?: string | null
 }
 
 export const products = [
@@ -54,4 +58,4 @@ export const products = [
     price: 200,
     description: 'The masterpiece, no words needed'
   }
-];
+]
