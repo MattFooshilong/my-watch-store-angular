@@ -1,7 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core'
 import { CartService } from '../cart.service'
 import { Validators, FormGroup, FormControl } from '@angular/forms'
-import { NotificationService } from '@progress/kendo-angular-notification'
 import { Product } from '../products'
 
 @Component({
@@ -33,8 +32,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   constructor(
-    private cartService: CartService,
-    private notificationService: NotificationService
+    private cartService: CartService
   ) {
     this.form = new FormGroup({
       fullName: new FormControl(this.data.fullName, [Validators.required]),
@@ -51,15 +49,6 @@ export class CheckoutComponent implements OnInit {
 
   public submitForm(): void {
     this.form.markAllAsTouched()
-    this.showSuccess()
   }
-  private showSuccess(): void {
-    this.notificationService.show({
-      content: 'Purchase Complete',
-      hideAfter: 3000,
-      position: { horizontal: 'center', vertical: 'top' },
-      animation: { type: 'fade', duration: 400 },
-      type: { style: 'success', icon: true },
-    })
-  }
+
 }
