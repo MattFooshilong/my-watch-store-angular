@@ -1,29 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { FormBuilder } from '@angular/forms'
-
+import { Validators, FormGroup, FormControl } from "@angular/forms";
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit {
 
-  constructor(
-    private cartService: CartService,
-    private formBuilder: FormBuilder
-  ) { }
+  //items
+  public items: any = [];
+  ngOnInit(): void {
+    this.cartService.getProducts()
+      .subscribe(res => {
+        this.items = res;
+      })
+  }
 
-  items = this.cartService.getItems();
+  //form
+  public form: FormGroup;
+  public data: any = {
+    fullName: '',
+    email: '',
+    address: '',
+    cardNumber: '',
+    terms: false,
+    comments: '',
+  };
 
-  checkoutForm = this.formBuilder.group({
-    name: '',
-    address: ''
-  })
+  constructor(private cartService: CartService) {
+    this.form = new FormGroup({
+      fullName: new FormControl(this.data.fullName, [Validators.required]),
+      email: new FormControl(this.data.email, [
+        Validators.required,
+        Validators.email,
+      ]),
+      address: new FormControl(this.data.address, [Validators.required]),
+      cardNumber: new FormControl(this.data.cardNumber, [Validators.required]),
+      terms: new FormControl(this.data.terms, [Validators.requiredTrue]),
+      comments: new FormControl(this.data.comments),
+    });
+  }
 
-  onSubmit(): void {
-    this.items = this.cartService.clearCart()
-    console.warn('Your order has been submitted', this.checkoutForm.value)
-    this.checkoutForm.reset()
+  public submitForm(): void {
+    this.form.markAllAsTouched();
   }
 }

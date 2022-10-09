@@ -1,13 +1,12 @@
-<!-- Counter is: {{counter.name}} -->
 <div *ngIf="items.length === 0" class="container text-center">
   <h4>Your cart is empty!</h4>
   <p>Click <a routerLink="/">here</a> to view all watches!</p>
 </div>
 
-<div *ngIf="items.length > 0" class="container">
-  <div class="cart-item" *ngFor="let item of items; let i = index">
+<div *ngIf="items.length > 0" class="row justify-content-center">
+  <div class="cart-item col-sm-6" *ngFor="let item of items; let i = index">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 d-flex justify-content-center">
         <img src="../../assets/images/watch{{item.id}}.png" alt="watch" width="200" height="200">
       </div>
       <div class="col-md-6">
@@ -16,21 +15,20 @@
         <small>Strap Color: {{item.strapColor}}</small>
         <small>Dial Size: {{item.dialSize}}</small>
         <small>Quantity: x{{item.quantity}}</small>
-
+        <button kendoButton themeColor="dark" class="button__text__white mt-3" (click)="removeItem(item)">
+          Remove item
+        </button>
       </div>
 
     </div>
 
   </div>
 
-</div>
-
-
-
-
-<div *ngIf="items.length">
-  <p>
-    <a routerLink="/shipping">Shipping prices</a>
-  </p>
-  <button class="button" type="button" routerLink="/checkout">Checkout</button>
+  <div class="row justify-content-end">
+    <div class="col-md-3 col-xs-12">
+      <button kendoButton themeColor="dark" class="button__text__white w-100" routerLink="/checkout">
+        Checkout
+      </button>
+    </div>
+  </div>
 </div>

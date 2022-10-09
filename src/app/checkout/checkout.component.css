@@ -1,0 +1,21 @@
+small {
+    display: block;
+    margin-bottom: 0;
+}
+
+.cart-item {
+    width: 100%;
+    padding: 16px 0px;
+    border-bottom: 1px solid black;
+    margin-bottom: 2rem;
+}
+
+.k-avatar {
+    margin-left: 80px;
+    font-size: 30px;
+}
+
+
+.k-form {
+    width: 100%;
+}

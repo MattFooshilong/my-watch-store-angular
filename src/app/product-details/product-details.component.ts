@@ -4,9 +4,6 @@ import { Product, products } from '../products'
 import { CartService } from '../cart.service'
 import { strapColor } from "../data.strapColor"
 import { dialSize } from "../data.dialSize"
-import { Store } from '@ngrx/store'
-import { increment, decrement, reset, customIncrement } from '../state/counter.actions'
-import { CounterState } from '../state/counter.state'
 
 @Component({
   selector: 'app-product-details',
@@ -18,8 +15,7 @@ import { CounterState } from '../state/counter.state'
 export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService,
-    private store: Store<{ counter: CounterState }>
+    private cartService: CartService
   ) { }
 
   //watch state
@@ -55,7 +51,13 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
+  public testProducts: any = [];
   ngOnInit(): void {
+    this.cartService.getProducts()
+      .subscribe(res => {
+        this.testProducts = res;
+      })
+    console.log(this.testProducts)
     const routeParams = this.route.snapshot.paramMap
     this.productID = Number(routeParams.get('productId'))
     this.product = products.find(product => product.id === this.productID)
@@ -66,18 +68,14 @@ export class ProductDetailsComponent implements OnInit {
     product.dialSize = this.chosenDialSize
     product.quantity = this.quantity
     this.cartService.addToCart(product)
-    window.alert('Your product has been added to the cart!')
     this.close()
   }
 
 
 
   public handleChange(item: { text: string; value: string | null }, type: string): void {
-
     if (type === 'strap') this.chosenStrapColor = item.value;
     if (type === 'dialSize') this.chosenDialSize = item.value;
-
-
   }
 
   addCount() {
@@ -87,19 +85,4 @@ export class ProductDetailsComponent implements OnInit {
     if (this.quantity > 1) this.quantity--
   }
 
-  //ngrx
-  value: number;
-  onIncrement() {
-    this.store.dispatch(increment())
-  }
-  onDecrement() {
-    this.store.dispatch(decrement())
-  }
-  onReset() {
-    this.store.dispatch(reset())
-  }
-  // onAdd() {
-  //   this.store.dispatch(customIncrement({ count: this.chosenDialSize, name: 'abc' }))
-  // }
 }
-

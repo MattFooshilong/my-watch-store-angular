@@ -6,6 +6,7 @@ export interface Product {
   strapColor?: string | null;
   dialSize?: string | null;
   quantity?: number;
+  cartItemID?: string | null
 }
 
 export const products = [

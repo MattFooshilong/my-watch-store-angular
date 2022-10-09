@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { Store } from '@ngrx/store'
-import { Observable } from 'rxjs'
-import { CounterState } from '../state/counter.state'
-import { getCounter } from '../state/counter.selector'
 
 @Component({
   selector: 'app-cart',
@@ -11,19 +7,21 @@ import { getCounter } from '../state/counter.selector'
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  //counter: CounterState
-  items = this.cartService.getItems();
+
+  public items: any = [];
+  ngOnInit(): void {
+    this.cartService.getProducts()
+      .subscribe(res => {
+        this.items = res;
+      })
+  }
 
   constructor(
-    private cartService: CartService,
-    //private store: Store<{ counter: CounterState }>
+    private cartService: CartService
   ) { }
 
-  ngOnInit(): void {
-    // this.store.select(getCounter).subscribe(counter => {
-    //   this.counter = counter
-    // })
-
+  removeItem(item: any) {
+    this.cartService.removeCartItem(item);
   }
 
 

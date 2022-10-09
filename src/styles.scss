@@ -18,10 +18,10 @@ body {
   margin: 0;
 }
 
-// .container {
-//   display: flex;
-//   flex-direction: row;
-// }
+
+.button__text__white span {
+  color: white !important;
+}
 
 router-outlet+* {
   padding: 0 16px;
