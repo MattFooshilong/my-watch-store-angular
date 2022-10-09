@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { Component, OnInit } from '@angular/core'
+import { CartService } from '../cart.service'
 
 @Component({
   selector: 'app-top-bar',
@@ -9,11 +9,11 @@ import { CartService } from '../cart.service';
 export class TopBarComponent implements OnInit {
 
   //items
-  public items: any = [];
+  public items: any = []
   ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
-        this.items = res;
+        this.items = res
       })
   }
 

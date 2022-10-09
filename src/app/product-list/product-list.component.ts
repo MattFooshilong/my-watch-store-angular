@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Product, products } from '../products';
+import { Component } from '@angular/core'
+import { Product, products } from '../products'
 import { CartService } from '../cart.service'
 
 @Component({
@@ -12,8 +12,8 @@ export class ProductListComponent {
     private cartService: CartService
   ) { }
 
-  products = products;
-  product: Product | undefined;
+  products = products
+  product: Product | undefined
 
 
   onNotify() {

@@ -58,4 +58,4 @@ export const products = [
     price: 200,
     description: 'The masterpiece, no words needed'
   }
-];
+]

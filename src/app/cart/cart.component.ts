@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
+import { Component, OnInit } from '@angular/core'
+import { CartService } from '../cart.service'
 
 @Component({
   selector: 'app-cart',
@@ -8,11 +8,11 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent implements OnInit {
 
-  public items: any = [];
+  public items: any = []
   ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
-        this.items = res;
+        this.items = res
       })
   }
 
@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
   ) { }
 
   removeItem(item: any) {
-    this.cartService.removeCartItem(item);
+    this.cartService.removeCartItem(item)
   }
 
 
