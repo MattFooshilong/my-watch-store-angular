@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core'
 import { CartService } from '../cart.service'
 import { Validators, FormGroup, FormControl } from '@angular/forms'
 import { NotificationService } from '@progress/kendo-angular-notification'
+import { Product } from '../products'
 
 @Component({
   selector: 'app-checkout',
@@ -12,7 +13,7 @@ import { NotificationService } from '@progress/kendo-angular-notification'
 export class CheckoutComponent implements OnInit {
 
   //items
-  public items: any = []
+  public items: Product[] = []
   ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
