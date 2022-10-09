@@ -1,9 +1,14 @@
 export interface CounterState {
     counter: number
+    id?: number;
+    name: string;
+    price?: number;
+    description?: string;
 }
 
 export const initialState = {
-    counter: 5
+    counter: 5,
+    name: ''
 }
 
 export interface Product {

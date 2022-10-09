@@ -3,8 +3,8 @@ export interface Product {
   name: string;
   price: number;
   description: string;
-  strapColor?: number | null;
-  dialSize?: number | null;
+  strapColor?: string | null;
+  dialSize?: string | null;
   quantity?: number;
 }
 

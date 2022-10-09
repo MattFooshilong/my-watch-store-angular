@@ -6,5 +6,5 @@ export const reset = createAction('reset')
 
 export const customIncrement = createAction(
     'customIncrement',
-    props<{ count: number }>()
+    props<{ count: number; name: string }>()
 )

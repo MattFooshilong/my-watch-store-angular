@@ -26,9 +26,9 @@ export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
   productID: number | null = null
   //selected values
-  quantity: number = 0
-  public chosenStrapColor: number | null = null
-  public chosenDialSize: number | null = null
+  quantity: number = 1
+  public chosenStrapColor: string | null = null
+  public chosenDialSize: string | null = null
 
 
   //strap color dropdown
@@ -38,13 +38,21 @@ export class ProductDetailsComponent implements OnInit {
   public dialSizeDropDownItems = dialSize
   public dialSizeDefaultItem = { text: 'Choose dial size', value: null }
 
+  //error message
+  notChosen = false
+
   //confirmation modal
   public opened = false;
   public close(): void {
     this.opened = false;
   }
   public open(): void {
-    this.opened = true;
+    if (!this.chosenStrapColor || !this.chosenDialSize)
+      this.notChosen = true
+    else {
+      this.opened = true
+      this.notChosen = false
+    }
   }
 
   ngOnInit(): void {
@@ -57,7 +65,6 @@ export class ProductDetailsComponent implements OnInit {
     product.strapColor = this.chosenStrapColor
     product.dialSize = this.chosenDialSize
     product.quantity = this.quantity
-    console.log(product)
     this.cartService.addToCart(product)
     window.alert('Your product has been added to the cart!')
     this.close()
@@ -65,18 +72,19 @@ export class ProductDetailsComponent implements OnInit {
 
 
 
-  public handleChange(item: { text: string; value: number | null }, type: string): void {
+  public handleChange(item: { text: string; value: string | null }, type: string): void {
+
     if (type === 'strap') this.chosenStrapColor = item.value;
     if (type === 'dialSize') this.chosenDialSize = item.value;
 
-    console.log(this.chosenDialSize)
+
   }
 
   addCount() {
     this.quantity++
   }
   minusCount() {
-    if (this.quantity > 0) this.quantity--
+    if (this.quantity > 1) this.quantity--
   }
 
   //ngrx
@@ -90,8 +98,8 @@ export class ProductDetailsComponent implements OnInit {
   onReset() {
     this.store.dispatch(reset())
   }
-  onAdd() {
-    this.store.dispatch(customIncrement({ count: this.chosenDialSize }))
-  }
+  // onAdd() {
+  //   this.store.dispatch(customIncrement({ count: this.chosenDialSize, name: 'abc' }))
+  // }
 }
 

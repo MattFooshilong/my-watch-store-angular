@@ -26,7 +26,8 @@ const _counterReducer = createReducer(
         console.log(action)
         return {
             ...state,
-            counter: action.count
+            counter: action.count,
+            name: action.name
         }
     })
 )

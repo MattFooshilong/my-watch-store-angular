@@ -1,4 +1,4 @@
-Counter is: {{(counter$ | async)}}
+<!-- Counter is: {{counter.name}} -->
 <div *ngIf="items.length === 0" class="container text-center">
   <h4>Your cart is empty!</h4>
   <p>Click <a routerLink="/">here</a> to view all watches!</p>
@@ -12,7 +12,10 @@ Counter is: {{(counter$ | async)}}
       </div>
       <div class="col-md-6">
         <h3>{{item.name}}</h3>
-        <p>{{item.price | currency:'SGD'}}</p>
+        <small>{{item.price | currency:'SGD'}}</small>
+        <small>Strap Color: {{item.strapColor}}</small>
+        <small>Dial Size: {{item.dialSize}}</small>
+        <small>Quantity: x{{item.quantity}}</small>
 
       </div>
 

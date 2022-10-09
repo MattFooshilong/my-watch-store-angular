@@ -14,11 +14,9 @@ export class CartService {
   ) { }
 
   addToCart(product: Product) {
-    let arr = [...this.items]
-    arr.push(product)
-    this.items = [...arr]
-    console.log(this.items)
-    localStorage.setItem('data', JSON.stringify(arr))
+    const copy = { ...product }
+    this.items.push(copy)
+    localStorage.setItem('data', JSON.stringify(this.items))
   }
 
   getItems() {
@@ -38,14 +36,4 @@ export class CartService {
   getShippingPrices() {
     return this.http.get<{ type: string, price: number }[]>('/assets/shipping.json')
   }
-}
-
-interface CartItems {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  strapColor: string;
-  dialSize: string;
-  quantity: number;
 }

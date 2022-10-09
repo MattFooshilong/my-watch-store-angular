@@ -1,5 +1,5 @@
-export const strapColor: Array<{ text: string; value: number }> = [
-    { text: 'Ocean Blue', value: 1 },
-    { text: 'Rose Gold', value: 2 },
-    { text: 'Space grey', value: 3 }
+export const strapColor: Array<{ text: string; value: string }> = [
+    { text: 'Ocean Blue', value: 'Ocean Blue' },
+    { text: 'Rose Gold', value: 'Rose Gold' },
+    { text: 'Space grey', value: 'Space grey' }
 ];

@@ -1,5 +1,5 @@
-<button kendoButton icon="k-icon k-i-plus" title="k-i-plus" fillMode="outline" class="k-mr-2"
-    (click)="onAdd()">Increment</button>
+<!-- <button kendoButton icon="k-icon k-i-plus" title="k-i-plus" fillMode="outline" class="k-mr-2"
+    (click)="onAdd()">Increment</button> -->
 
 <div class="container">
     <div>
@@ -33,14 +33,27 @@
 
 
         <button kendoButton (click)="open()" themeColor="dark" class="button__text__white">Add to cart</button>
+        <p *ngIf="notChosen" style="color:red">Please choose an option for the above</p>
     </div>
 
 
 
     <kendo-dialog title="Confirmation" *ngIf="opened && product" (close)="close()" [minWidth]="250" [width]="300">
-        <p style="margin: 30px; text-align: center;" *ngIf="product">
-            {{product.name}}
-        </p>
+        <div style="text-align: center;">
+            <p *ngIf="product">
+                {{product.name}}
+            </p>
+            <p *ngIf="chosenStrapColor">
+                {{chosenStrapColor}}
+            </p>
+            <p *ngIf="chosenDialSize">
+                {{chosenDialSize}}
+            </p>
+            <p>
+                Quantity: x{{quantity}}
+            </p>
+        </div>
+
         <kendo-dialog-actions>
             <button kendoButton (click)="close()">No</button>
             <button kendoButton (click)="addToCart(product)" themeColor="dark" class="button__text__white">
