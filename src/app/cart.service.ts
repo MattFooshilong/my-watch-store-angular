@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs'
 export class CartService {
   constructor() { }
 
-  public cartItemList: any = []
+  public cartItemList: Product[] = []
   public productList = new BehaviorSubject<any>([])
 
   getProducts() {
